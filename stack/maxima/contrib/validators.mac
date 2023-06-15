@@ -28,3 +28,5 @@
 validate_underscore(ex) := if is(sposition("_", string(ex)) = false) then "" 
         else "Underscore characters are not permitted in this input.";
 
+validate_all_one_letter_variables(ex) := if is(lmax(map(lambda([ex2],slength(string(ex2))),listofvars(ex)))>1) ) or emptyp(listofvars(ex)) then ""
+        else "Only single-character variable names are permitted in this input. Perhaps you forgot to use an asterisk (*) somewhere.";
